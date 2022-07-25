@@ -74,7 +74,6 @@
         .text main{
             height: 250px;
             width: 150px;
-            /* background-color: antiquewhite; */
             position: absolute;
             left: calc(50% - 75px);
             text-align: center;
