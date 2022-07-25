@@ -1,37 +1,180 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/LittleRind/choujiang/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+        .content {
+            box-sizing: border-box;
+            width: 500px;
+            height: 500px;
+            background-color: orange;
+            border: 20px solid red;
+            border-radius: 300px;
+            box-shadow: 0px 0px 10px 10px #8c8c8c;
+            position: absolute;
+            left: calc(50% - 250px);
+            top: calc(50% - 250px);
+            overflow: hidden;
+            transition: all 3s;
+        }
 
-### Markdown
+        .part {
+            box-sizing: border-box;
+            width: 250px;
+            height: 250px;
+            border: 3px solid red;
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            transform-origin: 100% 100%;
+        }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        .content span:nth-child(1) {
+            transform: rotate(0deg) skew(30deg);
+        }
 
-```markdown
-Syntax highlighted code block
+        .content span:nth-child(2) {
+            transform: rotate(60deg) skew(30deg);
+        }
 
-# Header 1
-## Header 2
-### Header 3
+        .content span:nth-child(3) {
+            transform: rotate(120deg) skew(30deg);
+        }
 
-- Bulleted
-- List
+        .content span:nth-child(4) {
+            transform: rotate(180deg) skew(30deg);
+        }
 
-1. Numbered
-2. List
+        .content span:nth-child(5) {
+            transform: rotate(240deg) skew(30deg);
+        }
 
-**Bold** and _Italic_ and `Code` text
+        .content span:nth-child(6) {
+            transform: rotate(300deg) skew(30deg);
+        }
 
-[Link](url) and ![Image](src)
-```
+        .text {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            background-color: transparent;
+            left: -20px;
+            top: -20px;
+        }
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+        .text main{
+            height: 250px;
+            width: 150px;
+            /* background-color: antiquewhite; */
+            position: absolute;
+            left: calc(50% - 75px);
+            text-align: center;
+            line-height: 150px;
+            transform-origin: bottom;
+            color: red;
+            font-size: 30px;
+            text-shadow: 0px 0px 10px red;
+        }
 
-### Jekyll Themes
+        main:nth-of-type(2){
+            transform: rotate(60deg);
+        }
+        main:nth-of-type(3){
+            transform: rotate(120deg);
+        }
+        main:nth-of-type(4){
+            transform: rotate(180deg);
+        }
+        main:nth-of-type(5){
+            transform: rotate(240deg);
+        }
+        main:nth-of-type(6){
+            transform: rotate(300deg);
+        }
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LittleRind/choujiang/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+        .box{
+            width: 500px;
+            height: 500px;
+            /* position: relative; */
+            /* margin: 200px; */
+        }
+        .btn{
+            width: 100px;
+            height: 100px;
+            /* background-color: #8c8c8c; */
+            position: absolute;
+            left: calc(50% - 50px);
+            top: calc(50% - 50px);
+        }
+        p{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: rgb(181, 7, 7);
+            border-radius: 50%;
+            color: yellow;
+            cursor: pointer;
+            font-size: 25px;
+            user-select: none;
+            text-shadow: 0px 0px 10px red;
+        }
+        .pointer{
+            display: inline-block;
+            /* background-color: aqua; */
+            position: absolute;
+            left: calc(50% - 30px);
+            top: -60px;
+            border: 30px solid transparent;
+            border-bottom: 60px solid rgb(198, 4, 4);
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    </style>
+</head>
 
-### Support or Contact
+<body>
+    <div class="box">
+        <div class="content">
+            <span class="part"></span>
+            <span class="part"></span>
+            <span class="part"></span>
+            <span class="part"></span>
+            <span class="part"></span>
+            <span class="part"></span>
+            <div class="text">
+                <main>手机</main>
+                <main>电脑</main>
+                <main>电视</main>
+                <main>手表</main>
+                <main>谢谢惠顾</main>
+                <main>再来一次</main>
+            </div>
+        </div>
+    </div>
+    <div class="btn">
+        <p>抽奖</p>
+        <span class="pointer"></span>
+    </div>
+</body>
+<script>
+    var btn = document.querySelector('.btn > p')
+    var content = document.querySelector('.content')
+    var key = 0
+    btn.onclick = function(){
+        var num = (parseInt(Math.random() * 10) + 12) *60
+        key += num
+        content.style.transform = `rotateZ(${key}deg)`
+    }
+</script>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</html>
